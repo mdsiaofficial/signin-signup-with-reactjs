@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, act } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
@@ -13,11 +13,15 @@ import { faListOl } from "@fortawesome/free-solid-svg-icons";
 // <FontAwesomeIcon icon={faLock} />
 export default function SignInSignUp() {
 
+  const [action, setAction] = useState("SignUp");
+
   return (
     <>
       {/* header */}
       <section className="m-3">
-        <h1 className="text-primary font-extrabold text-4xl text-center">Sign Up</h1>
+        <h1 className="text-primary font-extrabold text-4xl text-center">{action}</h1>
+
+        
       </section>
 
       {/* input section */}
@@ -27,7 +31,7 @@ export default function SignInSignUp() {
           className="flex flex-col m-5 items-center justify-center"
         >
 
-          <div className="flex gap-3 bg-slate-200 p-3">
+          <div className="flex gap-3 bg-slate-200 pt-16 p-3 px-16">
             <button className="bg-header h-12 w-12 hover:bg-headerHover trans">
               <FontAwesomeIcon className="h-6 w--6" icon={faUser} />
             </button>
@@ -39,7 +43,7 @@ export default function SignInSignUp() {
             />
           </div>
 
-          <div className="flex gap-3 bg-slate-200 p-3">
+          <div className="flex gap-3 bg-slate-200 p-3 px-16">
             <button className="bg-header h-12 w-12 hover:bg-headerHover trans">
               <FontAwesomeIcon className="h-6 w--6" icon={faIdCard} />
             </button>
@@ -51,7 +55,7 @@ export default function SignInSignUp() {
             />
           </div>
 
-          <div className="flex gap-3 bg-slate-200 p-3">
+          <div className="flex gap-3 bg-slate-200 p-3 px-16">
             <button className="bg-header h-12 w-12 hover:bg-headerHover trans">
               <FontAwesomeIcon className="h-6 w--6" icon={faListOl} />
             </button>
@@ -63,7 +67,7 @@ export default function SignInSignUp() {
             />
           </div>
 
-          <div className="flex gap-3 bg-slate-200 p-3">
+          <div className="flex gap-3 bg-slate-200 p-3 px-16">
             <button className="bg-header h-12 w-12 hover:bg-headerHover trans">
               <FontAwesomeIcon className="h-6 w--6" icon={faSquarePhone} />
             </button>
@@ -75,7 +79,7 @@ export default function SignInSignUp() {
             />
           </div>
 
-          <div className="flex gap-3 bg-slate-200 p-3">
+          <div className="flex gap-3 bg-slate-200 p-3 px-16">
             <button className="bg-header h-12 w-12 hover:bg-headerHover trans">
               <FontAwesomeIcon className="h-6 w--6" icon={faEnvelope} />
             </button>
@@ -87,7 +91,7 @@ export default function SignInSignUp() {
             />
           </div>
 
-          <div className="flex gap-3 bg-slate-200 p-3">
+          <div className="flex gap-3 bg-slate-200 pb-16 p-3 px-16">
             <button className="bg-header h-12 w-12 hover:bg-headerHover trans">
               <FontAwesomeIcon className="h-6 w--6" icon={faLock} />
             </button>
@@ -99,18 +103,32 @@ export default function SignInSignUp() {
             />
           </div>
 
-          <div>
-            <button className="bg-header flex gap-3 p-3 m-7 hover:bg-headerHover trans">
-              <h1 className="font-bold">Sign Up</h1>
-              <FontAwesomeIcon className="h-6 w--6" icon={faPaperPlane} />
-            </button>
-          </div>
+          
+
+          <section className="flex">
+            <div onClick={() =>{
+              setAction("SignUp")
+            }} className={action === "SignIn" ? "SignIn" : "submit"}>
+              <button className="bg-header flex gap-3 p-3 m-7 hover:bg-headerHover trans">
+                <h1 className="font-bold">SignUp</h1>
+                {/* <FontAwesomeIcon className="h-6 w--6" icon={faPaperPlane} /> */}
+              </button>
+            </div>
+
+            <div onClick={() =>{
+              setAction("SignIn")
+            }} className={action === "SignUp" ? "SignUp" : "submit"}>
+              <button className="bg-gray-400 flex gap-3 p-3 m-7 hover:bg-headerHover trans">
+                <h1 className="font-bold">SignIn</h1>
+                {/* <FontAwesomeIcon className="h-6 w--6" icon={faPaperPlane} /> */}
+              </button>
+            </div>
+          </section>
 
           <section>
             <h3>Lost your password?</h3>
             <a href="">Reset here!</a>
           </section>
-          
         </form>
 
 
