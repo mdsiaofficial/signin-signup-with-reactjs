@@ -11,7 +11,7 @@ import { faListOl } from "@fortawesome/free-solid-svg-icons";
 // <FontAwesomeIcon icon={faUser} />
 // <FontAwesomeIcon icon={faEnvelope} />
 // <FontAwesomeIcon icon={faLock} />
-export default function SignInSignUp() {
+export default function temp() {
 
   const [action, setAction] = useState("SignUp");
 
